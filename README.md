@@ -9,7 +9,7 @@ Also configured to work in swarm mode (docker stack deploy)
 
 ### Description 
 
-- Kotlin backend
+- Java backend
 - stage building Dockerfile
 - Dockerhub registry (com.mihai97ionita/docker-app)
 - Nginx hosted frontend
