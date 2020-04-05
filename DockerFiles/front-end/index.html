@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+ var HttpClient = function() {
+ this.get = function(aUrl, aCallback) {
+ var anHttpRequest = new XMLHttpRequest();
+ anHttpRequest.onreadystatechange = function() {
+ if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+ aCallback(anHttpRequest.responseText);
+ }
+ anHttpRequest.open( "GET", aUrl, true );
+ anHttpRequest.send( null );
+ }
+ }
+ var theurl='http://localhost:9090/controller';
+ var client = new HttpClient();
+ client.get(theurl, function(response) {
+ var response1 = JSON.parse(response);
+ // alert(response);
+ var i;
+ for(i=0;i<response1.length;i++)
+ {
+	var elementId="response"+i;
+	document.getElementById(elementId).innerHTML = "Id: "+response1[i].id+ ", Name: "+response1[i].name + ", Price: "+response1[i].price;
+}
+
+ });
+ </script>
+</head>
+<body>
+<center>
+
+    <center>
+        <table border="1">
+            <tr><td>response :</td><td id="response0"></td></tr>
+            <tr><td>response :</td><td id="response1"></td></tr>
+            <tr><td>response :</td><td id="response2"></td></tr>
+            <tr><td>response :</td><td id="response3"></td></tr>
+            <tr><td>response :</td><td id="response4"></td></tr>
+            <tr><td>response :</td><td id="response5"></td></tr>
+            <tr><td>response :</td><td id="response6"></td></tr>
+            <tr><td>response :</td><td id="response7"></td></tr>
+            <tr><td>response :</td><td id="response8"></td></tr>
+            <tr><td>response :</td><td id="response9"></td></tr>
+            <tr><td>response :</td><td id="response10"></td></tr>
+            <tr><td>response :</td><td id="response11"></td></tr>
+        </table>
+</body>
+</html>
